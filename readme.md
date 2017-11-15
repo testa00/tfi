@@ -1,27 +1,18 @@
-# Laravel PHP Framework
+# Тестовое задание для компании Itransition
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Для выполнения программы необходимо из командной строки запустить файл index.php в папке public.
+Перед этим для таблицы базы данных необходимо запустить миграции, файл csv должен находиться в storage/imports/stock.csv.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+По поводу дополнительных вопросов:
+1. - Правильно ли форматируются данные для CSV - правильно ли пользователь экспортирует данные в формат CSV для дальнейшей работы с программой?
+Не совсем понятный вопрос, помочь пользователю инструкцией.
+2. - Правильно ли форматируются данные для использования с базой данных - при валидации данных происходят определённые проверки и подготовка данных к импорту,
+если есть определённые требования можно выразить их в валидации для импорта.
+3. - Потенциальные проблемы кодирования данных или проблемы с окончанием строки - считать файл, перекодировать iconv и записать, возможно так.
+4. - Ручное вмешательство в файл, который может аннулировать некоторые записи - дополнительные проверки входящих данных перед импортом.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Для решения задачи, как и было предложено в задании, я использовал сторонние решения:
+для обработки csv файла - [Laravel Excel](https://packagist.org/packages/maatwebsite/excel),
+для удобной работы с Laravel's Eloquent ORM - [Insert Duplicate Key Update](https://packagist.org/packages/yadakhov/insert-on-duplicate-key).
 
-## Official Documentation
-
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Учитывая простоту кода и названия классов и методов, которые говорят сами за себя, код я не комментрировал.
